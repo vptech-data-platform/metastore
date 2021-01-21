@@ -63,7 +63,7 @@ public class Registries {
     AbstractRegistry registry = registries.get(name);
     if (registry == null) {
       throw Status.NOT_FOUND
-          .withDescription(String.format("Registry with name '%s' was not found."))
+          .withDescription(String.format("Registry with name '%s' was not found.", name))
           .asException();
     }
     return registry;
