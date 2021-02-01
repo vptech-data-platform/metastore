@@ -125,7 +125,10 @@ public class MetaStep {
     } else {
       channelBuilder.usePlaintext();
     }
-    schemaRegistry = RegistryGrpc.newBlockingStub(channelBuilder.build());
+    schemaRegistry =
+        RegistryGrpc.newBlockingStub(channelBuilder.build())
+            .withMaxInboundMessageSize(5000000)
+            .withMaxOutboundMessageSize(5000000);
   }
 
   private static void printVersion() {

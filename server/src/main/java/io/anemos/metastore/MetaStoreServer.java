@@ -38,6 +38,7 @@ public class MetaStoreServer {
             .addService(new MetaStoreService(metaStore))
             .addService(new RegistryService(metaStore))
             .addService(ProtoReflectionService.newInstance())
+            .maxInboundMessageSize(5000000)
             .build();
   }
 
